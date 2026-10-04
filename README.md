@@ -32,3 +32,10 @@ The fast path uses `int.bit_length()`, which is exact for base 2 and gives a tig
 - `base < 2` raises `ValueError`.
 - `floor_log_base(n, 4)` uses the power-of-two fast path: `floor(log2(n)) // 2`.
 - For non-power-of-two bases, the result is exact but uses the slower binary-search path; expect it to be slower than the base-2 path for inputs of comparable size.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
