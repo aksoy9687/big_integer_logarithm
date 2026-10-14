@@ -1,6 +1,6 @@
 [project]
 name = "big-integer-logarithm"
-version = "0.1.1"
+version = "0.1.2"
 description = "Returns the integer floor of the base-b logarithm of an arbitrarily large integer using bit-length scaling and correction."
 requires-python = ">=3.10"
 dependencies = []
